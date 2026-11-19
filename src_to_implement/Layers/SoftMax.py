@@ -1,8 +1,8 @@
-from Layers.Base import *
+from Layers import Base
 import numpy as np
 
 # TODO: Implement class SoftMax
-class SoftMax(BaseLayer):
+class SoftMax(Base.BaseLayer):
     def __init__(self):
         super().__init__()
 
@@ -14,6 +14,14 @@ class SoftMax(BaseLayer):
         return probabilities
 
     def backward(self, error_tensor):
-        return None
+        p = self.output_tensor
+
+        weighted_sum = np.sum(
+            p * error_tensor,
+            axis=1,
+            keepdims=True
+        )
+
+        return p * (error_tensor - weighted_sum)
 
     

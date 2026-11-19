@@ -1,0 +1,2 @@
+On the UCI ML hand-written digits dataset, we achieve an accuracy of: 86.81135225375625%
+On the UCI ML hand-written digits dataset, we achieve an accuracy of: 71.11853088480802%

@@ -5,7 +5,12 @@ from zipfile import ZipFile
 
 exercise_files = {0: ["generator.py", "main.py", "pattern.py"],
                   1: ["FullyConnected.py", "ReLU.py", "SoftMax.py",
-                      "Loss.py", "NeuralNetwork.py", "Base.py"],
+                      "Loss.py", "NeuralNetwork.py", "Base.py"], 
+                  2: ["FullyConnected.py", "ReLU.py", "SoftMax.py",
+                      "Loss.py", "NeuralNetwork.py", "Base.py", "Optimizers.py"],
+                  3: ["FullyConnected.py", "ReLU.py", "SoftMax.py",
+                      "Loss.py", "NeuralNetwork.py", "Base.py", "Optimizers.py",
+                      "Conv.py", "Flatten.py", "Dropout.py", "run.py"]
                   }
 
 
@@ -69,7 +74,7 @@ def get_exercise_number(files):
             lines = f.readlines()
             for l in lines:
                 if "ID" in l:
-                    ids.append(int(re.search(r"\d", l).group(0)))
+                    ids.append(int(re.search("\d", l).group(0)))
     if len(ids) == 1:
         return ids[0]
     elif len(ids) > 1:

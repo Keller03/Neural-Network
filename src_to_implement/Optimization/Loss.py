@@ -1,6 +1,6 @@
 import numpy as np
 
-from Layers.Base import BaseLayer
+from src_to_implement.Layers.Base import BaseLayer
 
 # TODO: Implement class CrossEntropyLoss
 class CrossEntropyLoss(BaseLayer):
@@ -14,5 +14,5 @@ class CrossEntropyLoss(BaseLayer):
         loss = -np.sum(target_tensor * np.log(predicted_tensor + np.finfo(float).eps))
         return loss
 
-    def backward(self):
-        return None
+    def backward(self, label_tensor):
+        return -label_tensor / (self.predicted_tensor + np.finfo(float).eps)
